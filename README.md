@@ -1,2 +1,2 @@
-# PoPs_fronted
+# PoPS_frontend
 Web interface and Visualization dashboard for PoPS project

@@ -67,6 +67,8 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
     <style>
         body { right-margin:50px ; padding:2 2 2 2; }
         #map { position:relative; top:0; bottom:0}
@@ -110,7 +112,55 @@
             margin: 0;
             cursor: ew-resize;
         }
+
+
+        .slidecontainer {
+            width: 100%; /* Width of the outside container */
+        }
+
+        /* The slider itself */
+        .slider {
+            -webkit-appearance: none;  /* Override default CSS styles */
+            appearance: none;
+            width: 100%; /* Full-width */
+            height: 3px; /* Specified height */
+            border-radius: 5px;
+            background: #d3d3d3; /* Grey background */
+            outline: none; /* Remove outline */
+            opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+            -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+            transition: opacity .2s;
+        }
+
+        /* Mouse-over effects */
+        .slider:hover {
+            opacity: 1; /* Fully shown on mouse-over */
+        }
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Override default look */
+            appearance: none;
+            width: 15px; /* Set a specific slider handle width */
+            height: 15px; /* Slider handle height */
+            border-radius: 50%;
+            background: #2d99dc; /* Green background */
+            cursor: pointer; /* Cursor on hover */
+        }
+
+        .slider::-moz-range-thumb {
+            width: 15px; /* Set a specific slider handle width */
+            height: 15px; /* Slider handle height */
+            border-radius: 50%;
+            background:  #2d99dc; /* Green background */
+            cursor: pointer; /* Cursor on hover */
+        }
+
+
+
     </style>
+
+
 
 
 </head>

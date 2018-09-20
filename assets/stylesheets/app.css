@@ -100,9 +100,10 @@ body.rtl .content {
   }
 
   .slider::-moz-range-thumb {
-      width: 25px; /* Set a specific slider handle width */
-      height: 25px; /* Slider handle height */
-      background: #4CAF50; /* Green background */
+      width: 15px; /* Set a specific slider handle width */
+      height: 15px; /* Slider handle height */
+      border-radius: 50%;
+      background:  #2d99dc; /* Green background */
       cursor: pointer; /* Cursor on hover */
   }
 

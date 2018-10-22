@@ -465,7 +465,8 @@
                                                 <div class="col-sm-9 m-t-1">
                                                   <div class = "row">
                                                     <div class="col-xs-5 ">
-                                                      <input type="checkbox" class="js-switch-small-primary" checked="checked"><span class="m-l-1">On/Off</span>
+                                                            <label data-toggle="collapse" data-target="#collapseVector" aria-expanded="false" aria-controls="collapseVector">
+                                                      <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -511,6 +512,7 @@
                                                 </div>
                                             </div>
 
+                                            <div id="collapseVector" aria-expanded="false" class="collapse">
                                             <div class="form-group">
                                                 <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species"></label>
                                                 <div class="col-sm-9 m-t-0">
@@ -549,6 +551,7 @@
                                                     </div>
                                                   </div>
                                                 </div>
+                                            </div>
                                             </div>
 
                                             
@@ -598,12 +601,13 @@
                                 <div class="form-group">
                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Does the pest/pathogen only spread during certain months of the year?">Seasonality</label>
                                     <div class="col-sm-3 m-t-1 ">
-
-                                      <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                            <label data-toggle="collapse" data-target="#collapseSeasonality" aria-expanded="false" aria-controls="collapseSeasonality">
+                                                    <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                      
                                     </div>
                                 </div>
 
-
+                                <div id="collapseSeasonality" aria-expanded="false" class="collapse">
                                 <div class="form-group">
                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="First month of pest/pathogen spread during the year">First month</label>
                                      <div class="col-sm-3">
@@ -627,7 +631,8 @@
                                        </select>
                                      </div>
                                 </div>
-
+                                </div>
+                                
                                 <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
 
 
@@ -636,6 +641,7 @@
                                     <div class="col-sm-9 m-t-1">
                                       <div class = "row">
                                         <div class="col-xs-5 ">
+                                                <label data-toggle="collapse" data-target="#collapseWind" aria-expanded="false" aria-controls="collapseWind">
                                           <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
                                         </div>
                                       </div>
@@ -644,7 +650,7 @@
                                 </div>
 
 
-
+                                <div id="collapseWind" aria-expanded="false" class="collapse">
                                 <div class="form-group">
                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="What is the predominant wind direction in your study area?">Wind direction</label>
                                      <div class="col-sm-3">
@@ -654,7 +660,9 @@
                                        </select>
                                      </div>
                                 </div>
+                              
 
+                                
                                 <div class="form-group">
                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="How strong is the affect of wind on the spread of your pest or pathogen? 0 is no effect, 8 is very strong">Kappa</label>
                                      <div class="col-sm-5">
@@ -673,7 +681,7 @@
 
                                      </div>
                                 </div>
-                                
+                                </div>
 
 
                                  <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
@@ -685,13 +693,16 @@
                                      <div class="col-sm-9 m-t-1">
                                        <div class = "row">
                                          <div class="col-xs-5 ">
-                                           <input type="checkbox" class="js-switch-small-primary" checked="checked"><span class="m-l-1">On/Off</span>
+                                                <label data-toggle="collapse" data-target="#collapseTemp" aria-expanded="true" aria-controls="collapseTemp">
+                                                    <input type="checkbox" class="js-switch-small-primary" checked="checked"><span class="m-l-1">On/Off</span>
+                                                </label>
                                          </div>
-
-                                         <div class="col-xs-6 ">
-                                           <input id="exampleInputFile" type="file">
-                                           <p class="help-block">Raster stack with .tif format</p>
-                                         </div>
+                                         <div id="collapseTemp" aria-expanded="true" class="collapse in">
+                                                <div class="col-xs-6 ">
+                                                        <input id="exampleInputFile" type="file">
+                                                        <p class="help-block">Raster stack with .tif format</p>
+                                                      </div>
+                                              </div>
                                        </div>
                                      </div>
                                  </div>
@@ -699,54 +710,63 @@
                                  <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
 
                                  <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Does precipitation significantly affect the spread of the pest/pathogen? If yes, include raster stack or NetCDF file for the precipitation coefficient using the same timestep as the simulation">Precipitation</label>
-                                     <div class="col-sm-9 m-t-1">
-                                       <div class = "row">
-                                         <div class="col-xs-5 ">
-                                           <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
-                                         </div>
+                                        <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Does precipitation significantly affect the spread of the pest/pathogen? If yes, include raster stack or NetCDF file for the precipitation coefficient using the same timestep as the simulation">Precipitation</label>
+                                        <div class="col-sm-9 m-t-1">
+                                          <div class = "row">
+                                            <div class="col-xs-5 ">
+                                                   <label data-toggle="collapse" data-target="#collapsePrecipitation" aria-expanded="false" aria-controls="collapsePrecipitation">
+                                                       <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                                   </label>
+                                            </div>
+                                            <div id="collapsePrecipitation" aria-expanded="false" class="collapse">
+                                                   <div class="col-xs-6 ">
+                                                           <input id="exampleInputFile" type="file">
+                                                           <p class="help-block">Raster stack with .tif format</p>
+                                                         </div>
+                                                 </div>
+                                          </div>
+                                        </div>
+                                    </div>
 
-                                         <div class="col-xs-6 ">
-                                           <input id="exampleInputFile" type="file">
-                                           <p class="help-block">Raster stack with .tif format</p>
-                                         </div>
-                                       </div>
-                                     </div>
-                                 </div>
-
-
+                                    
                                  <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
 
                                  <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Is there a temperature that is lethal for the pest/pathogen? If yes, include raster stack or NetCDF file for the temperature using a yearly timestep.">Lethal temp</label>
-                                     <div class="col-sm-9 m-t-1">
-                                       <div class = "row">
-                                         <div class="col-xs-5 ">
-                                           <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
-                                         </div>
+                                        <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Is there a temperature that is lethal for the pest/pathogen? If yes, include raster stack or NetCDF file for the temperature using a yearly timestep.">Lethal temp</label>
+                                        <div class="col-sm-9 m-t-1">
+                                          <div class = "row">
+                                            <div class="col-xs-5 ">
+                                                   <label data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="collapseLethalTemp1 collapseLethalTemp2 collapseLethalTemp3">
+                                                       <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                                   </label>
+                                            </div>
+                                            <div id="collapseLethalTemp1" aria-expanded="false" class="collapse multi-collapse">
+                                                   <div class="col-xs-6 ">
+                                                           <input id="exampleInputFile" type="file">
+                                                           <p class="help-block">Raster stack with .tif format</p>
+                                                         </div>
+                                                 </div>
+                                            </div>
+                                                
+                                        </div>
+                                    </div>
 
-                                         <div class="col-xs-6 ">
-                                           <input id="exampleInputFile" type="file">
-                                           <p class="help-block">Raster stack with .tif format</p>
-                                         </div>
-                                       </div>
-                                     </div>
-                                 </div>
-
-                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lethal temperature month">Lethal temp month</label>
-                                     <div class="col-sm-3">
-                                       <select class="selectpicker">
+                                    <div id="collapseLethalTemp2" aria-expanded="false" class="collapse multi-collapse">
+                                        <div class="form-group">
+                                            <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lethal temperature month">Lethal temp month</label>
+                                            <div class="col-sm-3">
+                                            <select class="selectpicker">
                                            <option>January</option><option>February</option><option>March</option>
                                            <option>April</option><option>May</option><option>June</option><option>July</option>
                                            <option>August</option><option>September</option><option>October</option>
                                            <option>November</option><option>December</option>
-                                       </select>
+                                            </select>
+                                        </div>
                                      </div>
                                 </div>
 
                         
-
+                                <div id="collapseLethalTemp3" aria-expanded="false" class="collapse multi-collapse">
                                 <div class="form-group">
                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lethal temperature cutoff for pest/pathogen">Lethal temperature value</label>
                                      <div class="col-sm-3">
@@ -756,7 +776,7 @@
                                          <p class="help-block" style="float:left;">&#176;C</p>
                                     </div>
                                 </div>
-
+                                </div>
                               </form>
 
                           </div>
@@ -853,12 +873,14 @@
                                      <div class="col-sm-9 m-t-1">
                                        <div class = "row">
                                          <div class="col-xs-5 ">
+                                                <label data-toggle="collapse" data-target="#collapseMortality" aria-expanded="false" aria-controls="collapseMortality">
                                            <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
                                          </div>
                                        </div>
                                      </div>
                                  </div>
 
+                                 <div id="collapseMortality" aria-expanded="false" class="collapse">
                                  <div class="form-group">
                                      <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species"></label>
                                      <div class="col-sm-9 m-t-1">
@@ -898,7 +920,8 @@
                                        </div>
                                      </div>
                                  </div>
-                                 
+                                 </div>
+
                                  <hr style  = "margin-left:5% ;margin-right:5%; margin-top:6%; ">
 
                                  <div class="form-group">

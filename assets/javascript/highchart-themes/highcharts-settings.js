@@ -2477,6 +2477,7 @@ $(function() {
             },
             xAxis: {
                 categories: [
+                    'No Management',
                     'Management Scenario 1',
                     'Management Scenario 2'
                 ],
@@ -2489,7 +2490,7 @@ $(function() {
                 }
             }, {
                 title: {
-                    text: 'Infected area (*10<sup>3</sup> m<sup>2</sup>)'
+                    text: 'Infected area (km<sup>2</sup>)'
                 },
                 opposite: true
             }],
@@ -2509,11 +2510,11 @@ $(function() {
             },        
             series: [{
                 name: 'Money Spent',
-                data: [6278.45, 10364.25]
+                data: [0, 18000, 18000]
 
             }, {
                 name: 'Area Infected',
-                data: [8274, 5345]
+                data: [33299,27123, 26344]
 
             }]
         });

@@ -74,7 +74,7 @@
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
             position: relative;
             width: 25%;
-            top: 65%;
+            top: 50%;
             left: 73%;
             margin-left: 20px;
             color: black;
@@ -274,7 +274,7 @@
 <!-- END Sub-Navbar with Header only-->
 
 <!-- START Sub-Navbar with Header and Breadcrumbs-->
-<div class="sub-navbar sub-navbar__header-breadcrumbs">
+<!-- <div class="sub-navbar sub-navbar__header-breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 sub-navbar-column">
@@ -296,7 +296,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- END Sub-Navbar with Header and Breadcrumbs-->
 
 
@@ -307,7 +307,7 @@
         <!-- START #3 Widgets -->
 
         <div class="col-lg-12">
-            <p class="m-b-3"><span class="text-white">Lorem ipsum dolor sit amet</span>, consectetur adipisicing elit. Officia ipsum dolor adipisci ad libero sunt nostrum harum nam odit doloremque eum expedita dolore dolores consectetur, maxime, obcaecati, repellat quibusdam. Sapiente, vitae. Aliquid velit voluptate perspiciatis omnis repudiandae obcaecati laborum nihil, culpa, voluptatibus. Excepturi, eaque perferendis.</p>
+            <p class="m-b-3"><span class="text-white">Spotted lanternfly</span> spread in and around current infestation with management in and around quarantine counties.</p>
         </div>
 
 
@@ -414,9 +414,10 @@
 
                   <div class='map-overlay top'>
                       <div class='map-overlay-inner'>
-                          <h4>Year: <label id='active-year'>2020</label></h4>
-                          <label id='month'></label>
-                          <input id='slider' type='range' min='2020' max='2022' step='1' value='0' />
+                          <h5>Year: <label id='active-year'>2018</label></h5>
+                          <input id='slider' type='range' min='2018' max='2020' step='1' value='2018' />
+                          <h5><label id='active-management'>No Management</label></h5>
+                          <input id='slider2' type='range' min='0' max='2' step='1' value='0' />
 
                           <div id='legend' class='legend'>
                             <br>
@@ -436,32 +437,36 @@
                     zoom: 7
                   });
 
+                  var managements = [
+                      'No Management',
+                      'Scenario 1',
+                      'Scenario 2'
+                    ];
+
+                  var managmented = [0];
+                  var year = [2018];
 
                   map.on('load', function() {
-                      // map.addSource("myImageSource", {
-                      //     "type": "image",
-                      //     "url": "https://raw.githubusercontent.com/ptabriz/Pops_frontend/master/maps/infection_2020.png",
-                      //     "coordinates": [
-                      //         [-82.64172725, 41.993922], //Top right
-                      //         [-73.9027364, 41.993922],  //Top left
-                      //         [-73.9027364, 36.5768566], //bottom left
-                      //         [-82.6417272, 36.5768566] //bottom right
-                      //     ]
-                      // });
-                      //
-                      // map.addLayer({
-                      //     "id": "overlay",
-                      //     "source": "myImageSource",
-                      //     "type": "raster",
-                      //     "paint": {
-                      //     "raster-opacity": 0.85
-                      //     }
-                      //
-                      // });
+    
+                        map.addSource('treatment', {
+                            type: 'geojson',
+                            data: 'https://raw.githubusercontent.com/ncsu-landscape-dynamics/Pops_frontend/chancellor/maps/slf_aphis_treatment.geojson'
+                        });
 
-                      document.getElementById('slider').addEventListener('input', function(e) {
-                        var year = parseInt(e.target.value);
-                        var rasterSource = "https://raw.githubusercontent.com/ptabriz/Pops_frontend/master/maps/infection_" + year + ".png";
+                        map.addLayer({
+                            "id": 'border',
+                            "type": 'fill',
+                            "source": 'treatment',
+                            "paint": {
+                                "fill-color": 'blue',
+                                "fill-opacity": 0.50
+                            }
+                        });
+                        
+
+                        document.getElementById('slider').addEventListener('input', function(e) {
+                        year = parseInt(e.target.value);
+                        var rasterSource = "https://raw.githubusercontent.com/ncsu-landscape-dynamics/Pops_frontend/chancellor/maps/infection_" + managemented + "_" + year + ".geojson";
                         // update the map
                         // change the overlay
                         if (map.getLayer("overlay")) {
@@ -472,25 +477,53 @@
                             map.removeSource("myImageSource");
                         };
 
-
                         map.addSource("myImageSource", {
-                            "type": "image",
-                            "url": rasterSource,
-                            "coordinates": [
-                                [-82.64172725, 41.993922], //Top right
-                                [-73.9027364, 41.993922],  //Top left
-                                [-73.9027364, 36.5768566], //bottom left
-                                [-82.6417272, 36.5768566] //bottom right
-                            ]
+                            "type": 'geojson',
+                            "data": rasterSource,
                         });
 
 
                         map.addLayer({
                             "id": "overlay",
                             "source": "myImageSource",
-                            "type": "raster",
+                            "type": 'fill',
                             "paint": {
-                            "raster-opacity": 0.85
+                                'fill-color': [
+                                    'interpolate',
+                                    ['linear'],
+                                    ['get', 'layer.1'],
+                                    0, '#E5B600',
+                                    0.10, '#D9A908',
+                                    0.20, '#CD9C11',
+                                    0.30, '#B58222',
+                                    0.40, '#AA752B',
+                                    0.50, '#9E6834',
+                                    0.60, '#925B3C',
+                                    0.70, '#864E45',
+                                    0.75, '#7A414E',
+                                    0.80, '#6F3457',
+                                    0.85, '#63275F',
+                                    0.90, '#571A68',
+                                    0.95, '#4B0D71',
+                                    1.0, '#400079'
+                                ],
+                                'fill-opacity': [
+                                    'interpolate',
+                                    ['linear'],
+                                    ['get', 'layer.1'],
+                                    0, 0.00,
+                                    0.05, 0.05,
+                                    0.10, 0.40,
+                                    0.20, 0.50,
+                                    0.30, 0.50,
+                                    0.40, 0.50,
+                                    0.50, 0.50,
+                                    0.60, 0.50,
+                                    0.70, 0.50,
+                                    0.80, 0.50,
+                                    0.90, 0.50,
+                                    1.0, 0.50
+                                ]
                             }
 
                         });
@@ -499,6 +532,72 @@
                         document.getElementById('active-year').innerText = year;
                       });
 
+                    document.getElementById('slider2').addEventListener('input', function(ev) {
+                        managemented = parseInt(ev.target.value);
+                        var rasterSource = "https://raw.githubusercontent.com/ncsu-landscape-dynamics/Pops_frontend/chancellor/maps/infection_" + managemented + "_" + year + ".geojson";
+                        // update the map
+                        // change the overlay
+                        if (map.getLayer("overlay")) {
+                            map.removeLayer("overlay");
+                        };
+
+                        if (map.getSource("myImageSource")) {
+                            map.removeSource("myImageSource");
+                        };
+
+                        map.addSource("myImageSource", {
+                            "type": 'geojson',
+                            "data": rasterSource,
+                        });
+
+
+                        map.addLayer({
+                            "id": "overlay",
+                            "source": "myImageSource",
+                            "type": 'fill',
+                            "paint": {
+                                'fill-color': [
+                                    'interpolate',
+                                    ['linear'],
+                                    ['get', 'layer.1'],
+                                    0, '#E5B600',
+                                    0.10, '#D9A908',
+                                    0.20, '#CD9C11',
+                                    0.30, '#B58222',
+                                    0.40, '#AA752B',
+                                    0.50, '#9E6834',
+                                    0.60, '#925B3C',
+                                    0.70, '#864E45',
+                                    0.75, '#7A414E',
+                                    0.80, '#6F3457',
+                                    0.85, '#63275F',
+                                    0.90, '#571A68',
+                                    0.95, '#4B0D71',
+                                    1.0, '#400079'
+                                ],
+                                'fill-opacity': [
+                                    'interpolate',
+                                    ['linear'],
+                                    ['get', 'layer.1'],
+                                    0, 0.00,
+                                    0.05, 0.05,
+                                    0.10, 0.40,
+                                    0.20, 0.50,
+                                    0.30, 0.50,
+                                    0.40, 0.50,
+                                    0.50, 0.50,
+                                    0.60, 0.50,
+                                    0.70, 0.50,
+                                    0.80, 0.50,
+                                    0.90, 0.50,
+                                    1.0, 0.50
+                                ]
+                            }
+
+                            });
+
+                        document.getElementById('active-management').textContent = managements[managemented];
+                    });
                   });
                   </script>
 
@@ -507,9 +606,9 @@
                 <!-- END Content -->
 
                 <!-- START Footer -->
-                <div class="panel-footer text-center">
+                <!-- <div class="panel-footer text-center">
                     <a href="#" class="text-muted">See More<i class="m-l-1 fa fa-angle-right"></i></a>
-                </div>
+                </div> -->
                 <!-- END Footer -->
 
             </div>
@@ -534,18 +633,18 @@
             <div class="col-lg-2">
 
                 <p class="m-b-0 m-t-1 text-gray-lighter">Number of attempts</p>
-                <h2 class="f-w-300 m-t-0">2</h2>
+                <h2 class="f-w-300 m-t-0">3</h2>
 
-                <p class="m-b-0 m-t-1 text-gray-lighter">Lowest budget spent</p>
-                <h2 class="f-w-300 m-t-0">$6,278.45</h2>
+                <p class="m-b-0 m-t-1 text-gray-lighter">Lowest budget</p>
+                <h2 class="f-w-300 m-t-0">$0</h2>
 
                 <p class="m-b-0 m-t-1 text-gray-lighter">Highest budget</p>
-                <h2 class="f-w-300 m-t-0">$10,364.25</h2>
+                <h2 class="f-w-300 m-t-0">$18,000,000</h2>
 
 
 
                 <p class="m-b-0 m-t-1 text-gray-lighter">Highest area infected</p>
-                <h3 class="f-w-300 m-t-0 m-b-1">8,274 * 10<sup>3</sup> m<sup>2</sup></h3>
+                <h3 class="f-w-300 m-t-0 m-b-1">33299 km<sup>2</sup></h3>
                 <span class="bar peity-bar-gray">8,4,5,6,7,8,9,5,4,3,7,3,5,2,9,5,3,9,6,5,9,7,3,5,7,3,5,2,9,5,3,9,6</span>
                 <p class="m-b-2 m-t-0 text-gray-lighter">Timeline</p>
 

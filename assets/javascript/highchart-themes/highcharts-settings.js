@@ -2478,21 +2478,16 @@ $(function() {
             xAxis: {
                 categories: [
                     'No Management',
-                    'Management Scenario 1',
-                    'Management Scenario 2'
+                    '$18 million',
+                    '$21 million'
                 ],
                 crosshair: true
             },
             yAxis: [{
                 min: 0,
                 title: {
-                    text: 'Money Spent ($1,000)'
-                }
-            }, {
-                title: {
                     text: 'Infected area (km<sup>2</sup>)'
-                },
-                opposite: true
+                }
             }],
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -2509,10 +2504,6 @@ $(function() {
                 }
             },        
             series: [{
-                name: 'Money Spent',
-                data: [0, 18000, 21000]
-
-            }, {
                 name: 'Area Infected',
                 data: [32502, 11626, 4572]
 

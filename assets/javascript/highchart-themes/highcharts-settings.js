@@ -2486,7 +2486,7 @@ $(function() {
             yAxis: [{
                 min: 0,
                 title: {
-                    text: 'Money Spent ($)'
+                    text: 'Money Spent ($1,000)'
                 }
             }, {
                 title: {
@@ -2510,11 +2510,11 @@ $(function() {
             },        
             series: [{
                 name: 'Money Spent',
-                data: [0, 18000, 18000]
+                data: [0, 18000, 21000]
 
             }, {
                 name: 'Area Infected',
-                data: [33299,27123, 26344]
+                data: [32502, 11626, 4572]
 
             }]
         });

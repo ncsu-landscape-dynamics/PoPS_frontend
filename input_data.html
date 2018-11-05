@@ -262,46 +262,41 @@
         <ul class="side-menu m-t-2">
 
             <li>
-                <a href="about.html" title="case study">
+                <a href="about.html" title="About">
                     <span class="nav-label">about</span>
                 </a>
             </li>
 
             <li>
-                <a href="login.html" title="case study">
-                    <span class="nav-label">login</span>
+                <a href="login.html" title="Log in to run the PoPS model">
+                    <span class="nav-label">login / create account</span>
                 </a>
             </li>
 
             <li>
-                <a href="register.html" title="case study">
-                    <span class="nav-label">Register</span>
+                <a href="index.html" title="Explore Case Studies">
+                    <span class="nav-label">Explore case studies</span>
                 </a>
             </li>
 
             <li>
-                <a href="index.html" title="about">
-                    <span class="nav-label">Case studies</span>
+                <a href="input_data.html" title="Create a new case study">
+                    <span class="nav-label">Create new case study</span>
                 </a>
             </li>
 
             <li>
-                <a href="dashboard.html" title="case study">
-                    <span class="nav-label">Dashboard</span>
+                <a href="dashboard.html" title="Run PoPS Model">
+                    <span class="nav-label">Run PoPS model</span>
                 </a>
             </li>
 
             <li>
-                <a href="report.html" title="case study">
-                    <span class="nav-label">Report</span>
+                <a href="report.html" title="View your history and create a report of your activity">
+                    <span class="nav-label">View history / create report</span>
                 </a>
             </li>
 
-            <li>
-                <a href="input_data.html" title="case study">
-                    <span class="nav-label">Inputs</span>
-                </a>
-            </li>
 
         </ul>
         <!-- END Tree  -->
@@ -330,7 +325,6 @@
             </div> -->
 
             <div class="row m-t-3">
-
             <!-- Start -->
                 <div class="col-sm-6">
 
@@ -348,22 +342,35 @@
                                     <div class="form-group">
                                         <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Host name</label>
                                          <div class="col-sm-7">
-                                           <input class="form-control" id="exampleInputEmail3" placeholder="" type="email">
+                                           <input class="form-control" id="exampleInputEmail3" placeholder="Tree-of-heaven, Ailanthus altissima" type="email">
+                                         </div>
+                                    </div>
+
+                                  
+
+                                    <div class="form-group">
+                                        <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Either competency of the host to produce inoculm for pathogens or the pest's preference for the host 1 is the default">Host score</label>
+                                         <div class="col-sm-5">
+                                           <output for="slider1" id="host_score" class="m-b-2">1</output>
+                                             <input type="range" min="0" max="1" value="1" step = "0.1" class="slider" id="slider1" oninput="host_score_update(value)">
+                                             <p class="help-block m-t-1"></p>
+                                             <!-- <output for="slider1" id="volume">50</output> -->
+    
+                                             <script>
+    
+                                               function host_score_update(vol1) {
+                                                       document.querySelector('#host_score').value = vol1;
+                                                     }
+    
+                                             </script>
+    
                                          </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Either competency of the host to produce inoculm for pathogens or the pest's preference for the host 1 is the default">Host score</label>
-                                        <div class="col-sm-2">
-                                          <input class="form-control m-r-1" id="exampleInputPassword3" placeholder="1" type="">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
 
                                         <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Number of hosts to use to predict spread">Number of hosts</label>
-                                        <div class="col-sm-1">
+                                        <div class="col-sm-5">
                                           <select class="selectpicker">
                                               <option>1</option><option>2</option><option>3</option>
                                               <option>4</option><option>5</option><option>6</option>
@@ -416,52 +423,135 @@
                                             <!-- start horizontal form -->
 
                                             <div class="form-group">
-                                                <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Host name</label>
+                                                <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the pest or pathogen">Species name</label>
                                                  <div class="col-sm-7">
-                                                   <input class="form-control" id="exampleInputEmail3" placeholder="" type="email">
+                                                   <input class="form-control" id="exampleInputEmail3" placeholder="Spotted Lanternfly (SLF), Lycorma delicatula" type="email">
                                                  </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Either competency of the host to produce inoculm for pathogens or the pest's preference for the host 1 is the default">Host score</label>
-                                                <div class="col-sm-2">
-                                                  <input class="form-control m-r-1" id="exampleInputPassword3" placeholder="1" type="">
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-
-                                                <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Number of hosts to use to predict spread">Number of hosts</label>
-                                                <div class="col-sm-1">
-                                                  <select class="selectpicker">
-                                                      <option>1</option><option>2</option><option>3</option>
-                                                      <option>4</option><option>5</option><option>6</option>
-                                                      <option>7</option><option>8</option><option>9</option>
-                                                      <option>10</option><option>11</option><option>12</option>
-                                                      <option>13</option><option>14</option><option>15</option>
-                                                      <option>16</option><option>17</option><option>18</option>
-                                                      <option>19</option><option>20</option>
-                                                  </select>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                              <label for="exampleInputFile" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Raster of the species counts per cell">Host data</label>
-                                              <div class="col-sm-5">
-                                                <input id="exampleInputFile" type="file" class="m-t-1" >
-                                                <p class="help-block">Raster files with .tif format</p>
-                                              </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="exampleInputFile" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Either a Raster of 1: total hosts and non-hosts  or 2: the maximum number of host species in your study area">All plants</label>
+                                                <label for="exampleInputFile" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Raster of the initial infestation locations as number of infested hosts">Initial infestation</label>
                                                   <div class="col-sm-5">
                                                     <input id="exampleInputFile" class="m-t-1" type="file">
                                                     <p class="help-block m-l-4 m-r-1">Raster files with .tif format </p>
                                                   </div>
                                             </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="The number of individual pest units created under perfect environmental conditions from a single host.">Reproductive rate</label>
+                                                 <div class="col-sm-3">
+                                                   <input class="form-control" id="exampleInputEmail3" placeholder="3.0" type="email">
+                                                 </div>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="How many pests do you want to model?">Number of pests</label>
+                                                <div class="col-sm-1">
+                                                  <select class="selectpicker">
+                                                      <option>1</option><option>2</option><option>3</option>
+                                                      <option>4</option><option>5</option>
+                                                  </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Is the disease spread by a vector?">Vector?</label>
+                                                <div class="col-sm-9 m-t-1">
+                                                  <div class = "row">
+                                                    <div class="col-xs-5 ">
+                                                            <label data-toggle="collapse" data-target="#collapseVector" aria-expanded="false" aria-controls="collapseVector">
+                                                      <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+           
+                                            <div class="form-group">
+                                                <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species"></label>
+                                                <div class="col-sm-9 m-t-0">
+                                                  <div class = "row">
+           
+                                                    <div class="col-xs-5 m-t-0">
+                                                      <output for="slider2" id="cryptic_to_infected_rate" class="m-b-1">0</output>
+                                                     <input type="range" min="0" max="1" value="0" step = "0.01" class="slider" id="slider2" oninput="cryptic_to_infected_rate_update(value)">
+                                                     <p class="help-block m-t-1">Cryptic to infected rate</p>
+                                                     <!-- <output for="slider1" id="volume">50</output> -->
+           
+                                                     <script>
+           
+                                                       function cryptic_to_infected_rate_update(vol) {
+                                                                 document.querySelector('#cryptic_to_infected_rate').value = vol;
+                                                             }
+           
+                                                     </script>
+           
+                                                    </div>
+           
+                                                    <div class="col-xs-5 m-t-0">
+                                                     <output for="slider3" id="infected_to_diseased_rate" class="m-b-1">0</output>
+                                                     <input type="range" min="0" max="1" value="0" step = "0.01" class="slider" id="slider3" oninput="infected_to_diseased_rate_update(value)">
+                                                     <p class="help-block m-t-1">Infected to diseased rate</p>
+                                                     <!-- <output for="slider1" id="volume">50</output> -->
+           
+                                                     <script>
+           
+                                                       function infected_to_diseased_rate_update(vol1) {
+                                                               document.querySelector('#infected_to_diseased_rate').value = vol1;
+                                                             }
+           
+                                                     </script>
+           
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="collapseVector" aria-expanded="false" class="collapse">
+                                            <div class="form-group">
+                                                <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species"></label>
+                                                <div class="col-sm-9 m-t-0">
+                                                  <div class = "row">
+           
+                                                    <div class="col-xs-5 m-t-0">
+                                                      <output for="slider4" id="vector_to_host_transmission_rate" class="m-b-1">0</output>
+                                                     <input type="range" min="0" max="1" value="0" step = "0.01" class="slider" id="slider4" oninput="vector_to_host_transmission_rate_update(value)">
+                                                     <p class="help-block m-t-1">Vector to host transmission rate</p>
+                                                     <!-- <output for="slider1" id="volume">50</output> -->
+           
+                                                     <script>
+           
+                                                       function vector_to_host_transmission_rate_update(vol) {
+                                                                 document.querySelector('#vector_to_host_transmission_rate').value = vol;
+                                                             }
+           
+                                                     </script>
+           
+                                                    </div>
+           
+                                                    <div class="col-xs-5 m-t-0">
+                                                     <output for="slider5" id="host_to_vector_transmission" class="m-b-1">0</output>
+                                                     <input type="range" min="0" max="1" value="0" step = "0.01" class="slider" id="slider5" oninput="host_to_vector_transmission_update(value)">
+                                                     <p class="help-block m-t-1">Host to vector transmission rate</p>
+                                                     <!-- <output for="slider1" id="volume">50</output> -->
+           
+                                                     <script>
+           
+                                                       function host_to_vector_transmission_update(vol1) {
+                                                               document.querySelector('#host_to_vector_transmission').value = vol1;
+                                                             }
+           
+                                                     </script>
+           
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                            
+
+
+                                            
 
                                           </form>
                     <!-- Finish panel -->
@@ -486,14 +576,14 @@
                                 <!-- start horizontal form -->
 
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Start Year</label>
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Year to start the simulation">Start Year</label>
                                      <div class="col-sm-3">
                                        <input class="form-control" id="exampleInputEmail3" placeholder="2000" type="email">
                                      </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">End year</label>
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Year to end the simulation">End year</label>
                                      <div class="col-sm-3">
                                        <input class="form-control" id="exampleInputEmail3" placeholder="2000" type="email">
                                      </div>
@@ -503,16 +593,17 @@
                                 <hr style = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
 
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Seasonality</label>
+                                    <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Does the pest/pathogen only spread during certain months of the year?">Seasonality</label>
                                     <div class="col-sm-3 m-t-1 ">
-
-                                      <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                            <label data-toggle="collapse" data-target="#collapseSeasonality" aria-expanded="false" aria-controls="collapseSeasonality">
+                                                    <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                      
                                     </div>
                                 </div>
 
-
+                                <div id="collapseSeasonality" aria-expanded="false" class="collapse">
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">First month</label>
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="First month of pest/pathogen spread during the year">First month</label>
                                      <div class="col-sm-3">
                                        <select class="selectpicker">
                                            <option>January</option><option>February</option><option>March</option>
@@ -524,7 +615,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">End year</label>
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Last month of pest/pathogen spread during the year">Last month</label>
                                      <div class="col-sm-3">
                                        <select class="selectpicker">
                                            <option>January</option><option>February</option><option>March</option>
@@ -534,16 +625,18 @@
                                        </select>
                                      </div>
                                 </div>
-
+                                </div>
+                                
                                 <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
 
 
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Wind</label>
+                                    <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Does wind significantly affect the spread of the pest/pathogen?">Wind</label>
                                     <div class="col-sm-9 m-t-1">
                                       <div class = "row">
                                         <div class="col-xs-5 ">
-                                          <input type="checkbox" class="js-switch-small-primary" checked="checked"><span class="m-l-1">On/Off</span>
+                                                <label data-toggle="collapse" data-target="#collapseWind" aria-expanded="false" aria-controls="collapseWind">
+                                          <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
                                         </div>
                                       </div>
                                     </div>
@@ -551,12 +644,38 @@
                                 </div>
 
 
-                                 <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Direction</label>
-                                      <div class="col-sm-3">
-                                        <input class="form-control" id="exampleInputEmail3" placeholder="45" type="email">
-                                      </div>
-                                 </div>
+                                <div id="collapseWind" aria-expanded="false" class="collapse">
+                                <div class="form-group">
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="What is the predominant wind direction in your study area?">Wind direction</label>
+                                     <div class="col-sm-3">
+                                       <select class="selectpicker">
+                                           <option>N</option><option>NW</option><option>W</option><option>SW</option><option>S</option><option>SE</option><option>E</option><option>NE</option>
+
+                                       </select>
+                                     </div>
+                                </div>
+                              
+
+                                
+                                <div class="form-group">
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="How strong is the affect of wind on the spread of your pest or pathogen? 0 is no effect, 8 is very strong">Kappa</label>
+                                     <div class="col-sm-5">
+                                       <output for="slider6" id="kappa" class="m-b-2">0</output>
+                                         <input type="range" min="0" max="8" value="0" step = "1" class="slider" id="slider6" oninput="kappa_update(value)">
+                                         <p class="help-block m-t-1"></p>
+                                         <!-- <output for="slider1" id="volume">50</output> -->
+
+                                         <script>
+
+                                           function kappa_update(vol1) {
+                                                   document.querySelector('#kappa').value = vol1;
+                                                 }
+
+                                         </script>
+
+                                     </div>
+                                </div>
+                                </div>
 
 
                                  <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
@@ -564,56 +683,94 @@
 
 
                                  <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Temperature</label>
+                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Does temperature significantly affect the spread of the pest/pathogen? If yes, include raster stack or NetCDF file for the temperature coefficient using the same timestep as the simulation.">Temperature</label>
                                      <div class="col-sm-9 m-t-1">
                                        <div class = "row">
                                          <div class="col-xs-5 ">
-                                           <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                                <label data-toggle="collapse" data-target="#collapseTemp" aria-expanded="true" aria-controls="collapseTemp">
+                                                    <input type="checkbox" class="js-switch-small-primary" checked="checked"><span class="m-l-1">On/Off</span>
+                                                </label>
                                          </div>
-
-                                         <div class="col-xs-6 ">
-                                           <input id="exampleInputFile" type="file">
-                                           <p class="help-block">Raster stack with .tif format</p>
-                                         </div>
+                                         <div id="collapseTemp" aria-expanded="true" class="collapse in">
+                                                <div class="col-xs-6 ">
+                                                        <input id="exampleInputFile" type="file">
+                                                        <p class="help-block">Raster stack with .tif format</p>
+                                                      </div>
+                                              </div>
                                        </div>
                                      </div>
                                  </div>
+
+                                 <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
 
                                  <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Percipitation</label>
-                                     <div class="col-sm-9 m-t-1">
-                                       <div class = "row">
-                                         <div class="col-xs-5 ">
-                                           <input type="checkbox" class="js-switch-small-primary" checked="checked"><span class="m-l-1">On/Off</span>
-                                         </div>
+                                        <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Does precipitation significantly affect the spread of the pest/pathogen? If yes, include raster stack or NetCDF file for the precipitation coefficient using the same timestep as the simulation">Precipitation</label>
+                                        <div class="col-sm-9 m-t-1">
+                                          <div class = "row">
+                                            <div class="col-xs-5 ">
+                                                   <label data-toggle="collapse" data-target="#collapsePrecipitation" aria-expanded="false" aria-controls="collapsePrecipitation">
+                                                       <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                                   </label>
+                                            </div>
+                                            <div id="collapsePrecipitation" aria-expanded="false" class="collapse">
+                                                   <div class="col-xs-6 ">
+                                                           <input id="exampleInputFile" type="file">
+                                                           <p class="help-block">Raster stack with .tif format</p>
+                                                         </div>
+                                                 </div>
+                                          </div>
+                                        </div>
+                                    </div>
 
-                                         <div class="col-xs-6 ">
-                                           <input id="exampleInputFile" type="file">
-                                           <p class="help-block">Raster stack with .tif format</p>
-                                         </div>
-                                       </div>
-                                     </div>
-                                 </div>
-
+                                    
+                                 <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
 
                                  <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Lethal temp</label>
-                                     <div class="col-sm-9 m-t-1">
-                                       <div class = "row">
-                                         <div class="col-xs-5 ">
-                                           <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
-                                         </div>
+                                        <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Is there a temperature that is lethal for the pest/pathogen? If yes, include raster stack or NetCDF file for the temperature using a yearly timestep.">Lethal temp</label>
+                                        <div class="col-sm-9 m-t-1">
+                                          <div class = "row">
+                                            <div class="col-xs-5 ">
+                                                   <label data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="collapseLethalTemp1 collapseLethalTemp2 collapseLethalTemp3">
+                                                       <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
+                                                   </label>
+                                            </div>
+                                            <div id="collapseLethalTemp1" aria-expanded="false" class="collapse multi-collapse">
+                                                   <div class="col-xs-6 ">
+                                                           <input id="exampleInputFile" type="file">
+                                                           <p class="help-block">Raster stack with .tif format</p>
+                                                         </div>
+                                                 </div>
+                                            </div>
+                                                
+                                        </div>
+                                    </div>
 
-                                         <div class="col-xs-6 ">
-                                           <input id="exampleInputFile" type="file">
-                                           <p class="help-block">Raster stack with .tif format</p>
-                                         </div>
-                                       </div>
+                                    <div id="collapseLethalTemp2" aria-expanded="false" class="collapse multi-collapse">
+                                        <div class="form-group">
+                                            <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lethal temperature month">Lethal temp month</label>
+                                            <div class="col-sm-3">
+                                            <select class="selectpicker">
+                                           <option>January</option><option>February</option><option>March</option>
+                                           <option>April</option><option>May</option><option>June</option><option>July</option>
+                                           <option>August</option><option>September</option><option>October</option>
+                                           <option>November</option><option>December</option>
+                                            </select>
+                                        </div>
                                      </div>
-                                 </div>
+                                </div>
 
-
-
+                        
+                                <div id="collapseLethalTemp3" aria-expanded="false" class="collapse multi-collapse">
+                                <div class="form-group">
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lethal temperature cutoff for pest/pathogen">Lethal temperature value</label>
+                                     <div class="col-sm-3">
+                                       <input class="form-control" id="exampleInputEmail3" placeholder="-30.0" type="email">
+                                     </div>
+                                     <div>
+                                         <p class="help-block" style="float:left;">&#176;C</p>
+                                    </div>
+                                </div>
+                                </div>
                               </form>
 
                           </div>
@@ -625,9 +782,18 @@
                             <form class="form-horizontal">
                                 <!-- start horizontal form -->
 
+                                <div class="form-group">
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Select between SCID, SCI, and SI model types. S = susceptible, C = cryptic, I = infested, D = diseased.">Model type</label>
+                                     <div class="col-sm-3">
+                                       <select class="selectpicker">
+                                           <option>SEID</option><option>SID</option><option>SI</option>
+
+                                       </select>
+                                     </div>
+                                </div>
 
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Time step</label>
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="What time-step should the model run on? (options daily, weekly, monthly)">Time step</label>
                                      <div class="col-sm-3">
                                        <select class="selectpicker">
                                            <option>Daily</option><option>Weekly</option><option>Monthly</option>
@@ -637,10 +803,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Dispersal Kernel</label>
+                                    <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Select the dispersal kernel that best matches your species spread pattern.">Dispersal Kernel</label>
                                      <div class="col-sm-3">
                                        <select class="selectpicker">
-                                           <option>Couchy</option><option>Couchy double scale</option>
+                                           <option>Cauchy</option><option>Cauchy double scale</option>
                                        </select>
                                      </div>
                                 </div>
@@ -648,19 +814,19 @@
                                 <hr style  = "margin-left:5% ;margin-right:5%; margin-top:5%; ">
 
                                 <div class="form-group">
-                                    <label for="exampleInputName2" class="col-sm-3 m-t-2  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Short dispersal</label>
+                                    <label for="exampleInputName2" class="col-sm-3 m-t-2  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Scale parameter for the dispersal kernel for short distance dispersal.">Short dispersal</label>
                                     <div class="col-sm-9 m-t-1">
                                       <div class = "row">
 
-                                        <div class="col-xs-5 m-t-1">
+                                        <div class="col-sm-4 m-t-1">
 
                                           <input class="form-control" id="exampleInputEmail3" placeholder="0" type="email">
                                           <p class="help-block m-t-1">Short dispersal scale</p>
                                         </div>
 
-                                        <div class="col-xs-6 m-b-2">
-                                         <output for="slider2" id="short_dispesal" class="m-b-2">0</output>
-                                         <input type="range" min="0" max="100" value="0" step = "10" class="slider" id="slider2" oninput="short_dispesal_update(value)">
+                                        <div class="col-xs-5 m-b-2">
+                                         <output for="slider7" id="short_dispesal" class="m-b-2">1</output>
+                                         <input type="range" min="0" max="1" value="1" step = "0.01" class="slider" id="slider7" oninput="short_dispesal_update(value)">
                                          <p class="help-block m-t-1">% short distance dispersal</p>
                                          <!-- <output for="slider1" id="volume">50</output> -->
 
@@ -679,16 +845,16 @@
 
 
                                  <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Long dispersal scale</label>
+                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Scale parameter for the dispersal kernel for long distance dispersal.">Long dispersal</label>
                                       <div class="col-sm-3">
                                         <input class="form-control" id="exampleInputEmail3" placeholder="0" type="email">
                                       </div>
                                  </div>
 
                                  <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Seed</label>
-                                      <div class="col-sm-3 m-t-3">
-                                        <input class="form-control" id="exampleInputEmail3" placeholder="0" type="email">
+                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Used to set the random seed for reproducing the exact same model run at a later date.">Seed</label>
+                                      <div class="col-sm-3">
+                                        <input class="form-control" id="exampleInputEmail3" placeholder="42" type="email">
                                       </div>
                                  </div>
 
@@ -697,24 +863,26 @@
 
 
                                  <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Mortality</label>
+                                     <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Does the pest/pathogen cause the host species to die?">Mortality</label>
                                      <div class="col-sm-9 m-t-1">
                                        <div class = "row">
                                          <div class="col-xs-5 ">
-                                           <input type="checkbox" class="js-switch-small-primary" checked="checked"><span class="m-l-1">On/Off</span>
+                                                <label data-toggle="collapse" data-target="#collapseMortality" aria-expanded="false" aria-controls="collapseMortality">
+                                           <input type="checkbox" class="js-switch-small-primary"><span class="m-l-1">On/Off</span>
                                          </div>
                                        </div>
                                      </div>
                                  </div>
 
+                                 <div id="collapseMortality" aria-expanded="false" class="collapse">
                                  <div class="form-group">
                                      <label for="exampleInputName2" class="col-sm-3  control-label" style = "margin-top:5px" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species"></label>
                                      <div class="col-sm-9 m-t-1">
                                        <div class = "row">
 
-                                         <div class="col-xs-6 m-t-1">
-                                           <output for="slider1" id="mortality_rate" class="m-b-1">0</output>
-                                          <input type="range" min="0" max="100" value="0" steps = "10" class="slider" id="slider1" oninput="mortality_rate_update(value)">
+                                         <div class="col-xs-5 m-t-1">
+                                           <output for="slider8" id="mortality_rate" class="m-b-1">0</output>
+                                          <input type="range" min="0" max="1" value="0" step = "0.01" class="slider" id="slider8" oninput="mortality_rate_update(value)">
                                           <p class="help-block m-t-1">Mortality rate</p>
                                           <!-- <output for="slider1" id="volume">50</output> -->
 
@@ -728,9 +896,9 @@
 
                                          </div>
 
-                                         <div class="col-xs-6 m-t-1">
-                                          <output for="slider2" id="time_lag" class="m-b-1">0</output>
-                                          <input type="range" min="0" max="100" value="0" steps = "10" class="slider" id="slider2" oninput="time_lag_update(value)">
+                                         <div class="col-xs-5 m-t-1">
+                                          <output for="slider9" id="time_lag" class="m-b-1">0</output>
+                                          <input type="range" min="0" max="10" value="0" step = "1" class="slider" id="slider9" oninput="time_lag_update(value)">
                                           <p class="help-block m-t-1">Mortality time lag</p>
                                           <!-- <output for="slider1" id="volume">50</output> -->
 
@@ -746,14 +914,22 @@
                                        </div>
                                      </div>
                                  </div>
-
-                                 <div class="form-group">
-                                     <label for="exampleInputName2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Name of the host species">Reproductive rate</label>
-                                      <div class="col-sm-3">
-                                        <input class="form-control" id="exampleInputEmail3" placeholder="0" type="email">
-                                      </div>
                                  </div>
 
+                                 <hr style  = "margin-left:5% ;margin-right:5%; margin-top:6%; ">
+
+                                 <div class="form-group">
+                                    <div class="m-x-3">
+                                        <p class="help-block">Clicking Submit New Case Study will save your data to the database and make your case study available on the Run PoPS Model page.
+                                        </p>
+                                    </div>  
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="m-x-3">
+                                        <a href="dashboard.html" class="btn btn-primary btn-block" role="button">Submit New Case Study</a>
+                                    </div>  
+                                </div>
 
                               </form>
 
@@ -763,10 +939,10 @@
 
 
                         </div>
+                        
 
                       </div>
-
-
+                      
 
             <!-- Finish row -->
             </div>

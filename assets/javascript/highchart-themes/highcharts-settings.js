@@ -1460,7 +1460,7 @@ $(function() {
         });
     });
 
-    Dashboard.Helpers.elementExists('.c', function() {
+    Dashboard.Helpers.elementExists('.highcharts-stacked-bar', function() {
         $(this).highcharts({
             chart: {
                 type: 'bar'
@@ -2330,23 +2330,23 @@ $(function() {
                 type: 'column'
             },
             title: {
-                text: 'Effect of Management on '
+                text: 'Efficiency Optimization by Branch'
             },
             xAxis: {
                 categories: [
-                    'Management Scenario 1',
-                    'Management Scenario 2',
+                    'Seattle HQ',
+                    'San Francisco',
                     'Tokyo'
                 ]
             },
             yAxis: [{
                 min: 0,
                 title: {
-                    text: 'Money Spent ($)'
+                    text: 'Employees'
                 }
             }, {
                 title: {
-                    text: 'Infected area (m^2)'
+                    text: 'Profit (millions)'
                 },
                 opposite: true
             }],
@@ -2364,19 +2364,19 @@ $(function() {
                 }
             },
             series: [{
-                name: 'Money Spent With Management',
+                name: 'Employees',
                 color: 'rgba(165,170,217,1)',
                 data: [150, 73, 20],
                 pointPadding: 0.3,
                 pointPlacement: -0.2
             }, {
-                name: 'Money Spent Without Management',
+                name: 'Employees Optimized',
                 color: 'rgba(126,86,134,.9)',
                 data: [140, 90, 40],
                 pointPadding: 0.4,
                 pointPlacement: -0.2
             }, {
-                name: 'Infected Area With Management',
+                name: 'Profit',
                 color: 'rgba(248,161,63,1)',
                 data: [183.6, 178.8, 198.5],
                 tooltip: {
@@ -2387,7 +2387,7 @@ $(function() {
                 pointPlacement: 0.2,
                 yAxis: 1
             }, {
-                name: 'Infected Area Without Management',
+                name: 'Profit Optimized',
                 color: 'rgba(186,60,61,.9)',
                 data: [203.6, 198.8, 208.5],
                 tooltip: {
@@ -2461,7 +2461,7 @@ $(function() {
         $(this).highcharts({
             chart: {
                 type: 'column',
-                height: 400
+                height: 300
             },
             title: {
                 text: ''
@@ -2477,35 +2477,45 @@ $(function() {
             },
             xAxis: {
                 categories: [
-                    'No Management',
-                    '$18 million',
-                    '$21 million'
+                    'Q1',
+                    'Q2',
+                    'Q3',
+                    'Q4'
                 ],
                 crosshair: true
             },
-            yAxis: [{
+            yAxis: {
                 min: 0,
                 title: {
-                    text: 'Infected area (km<sup>2</sup>)'
+                    text: ''
                 }
-            }],
+            },
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true
             },
             plotOptions: {
                 column: {
-                    pointPadding: 0.1,
+                    pointPadding: 0.2,
                     borderWidth: 0
                 }
-            },        
+            },
             series: [{
-                name: 'Area Infected',
-                data: [32502, 11626, 4572]
+                name: 'Direct',
+                data: [49.9, 71.5, 106.4, 129.2]
+
+            }, {
+                name: 'Indirect',
+                data: [83.6, 78.8, 98.5, 93.4]
+
+            }, {
+                name: 'Adds',
+                data: [48.9, 38.8, 39.3, 41.4],
+                color: '#383838'
 
             }]
         });
@@ -3277,7 +3287,7 @@ $(function() {
     });
 
 
-    Dashboard.Helpers.elementExists('.c', function() {
+    Dashboard.Helpers.elementExists('.highcharts-ajax-loaded-data', function() {
         // Get the CSV and create the chart
         var _this = this;
         $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=analytics.csv&callback=?', function (csv) {

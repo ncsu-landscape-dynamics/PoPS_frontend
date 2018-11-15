@@ -99,6 +99,10 @@ body.rtl .content {
       cursor: pointer; /* Cursor on hover */
   }
 
+  .slider::-ms-fill-lower {
+      background:  #2d99dc;
+  }
+
   .slider::-moz-range-thumb {
       width: 15px; /* Set a specific slider handle width */
       height: 15px; /* Slider handle height */
